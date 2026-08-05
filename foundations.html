@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Foundations — AI for Designers</title>
+<meta name="description" content="The one idea that makes Claude Code click for designers: the prompt to skill to subagent ladder, and where AI genuinely adds value.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html"><span class="glyph">❯</span><b>AI for Designers</b></a>
+    <div class="nav-links">
+      <a href="index.html">Start</a>
+      <a href="foundations.html" aria-current="page">Foundations</a>
+      <a href="prompting.html">Prompts</a>
+      <span class="soon">Skills</span>
+      <span class="soon">Path</span>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <header class="hero grid-wash">
+    <div class="wrap">
+      <div class="eyebrow">Foundations · read this first</div>
+      <h1>The one idea that makes everything click.</h1>
+      <p class="lede">Master this and the rest of the guide is just detail. It answers the question every designer new to AI keeps hitting: <strong>when do I use a prompt, when a skill, and when an agent?</strong></p>
+    </div>
+  </header>
+
+  <!-- ===== where AI helps ===== -->
+  <section class="band">
+    <div class="wrap measure">
+      <div class="sec-head"><h2>Where AI actually helps</h2></div>
+      <p class="sec-sub">Before the how, the where. AI earns its place on design work that is <em>structured, repeatable, or high-volume</em> — and gets in the way on work that is <em>taste, judgement, or a single irreplaceable decision</em>. Knowing the line is what separates using AI well from using it everywhere.</p>
+
+      <div class="compare">
+        <div class="col good">
+          <h4>Reach for it</h4>
+          <ul>
+            <li>Enumerating states — every empty, loading, error and overflow case for Acme&#39;s user table</li>
+            <li>Turning a described interaction into a state and variant matrix</li>
+            <li>First-draft UX copy, error messages, empty-state text</li>
+            <li>Accessibility audits against WCAG criteria</li>
+            <li>Dev handoff specs and acceptance criteria</li>
+            <li>Restructuring research notes into themes</li>
+            <li>Anything you&#39;ve now typed three times</li>
+          </ul>
+        </div>
+        <div class="col bad">
+          <h4>Keep it human</h4>
+          <ul>
+            <li>The core creative direction — what the product should feel like</li>
+            <li>Deciding which problem is worth solving at all</li>
+            <li>Taste calls: is this <em>good</em>, not just correct</li>
+            <li>Talking to real users and reading the room</li>
+            <li>The final say on anything shipping to people</li>
+            <li>Political and organisational judgement</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <span class="eyebrow">The test</span>
+        <p>If you could write down the steps for a colleague to follow, AI can probably do it. If the value is in your judgement and the steps live only in your head, it can&#39;t — and shouldn&#39;t pretend to.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== the ladder ===== -->
+  <section class="band">
+    <div class="wrap measure">
+      <div class="sec-head"><h2>The ladder: prompt → skill → subagent</h2></div>
+      <p class="sec-sub">These aren&#39;t three unrelated features. They&#39;re the same thing at three levels of permanence. A task starts as words you type, and — if it earns it — climbs into a saved tool, then into delegated work.</p>
+
+      <div class="ladder">
+        <div class="rung t1"><div class="n">1</div><div class="body"><b>Prompt</b><span>Words you type into a session, once.</span></div><div class="cmd">paste once</div></div>
+        <div class="rung t2"><div class="n">2</div><div class="body"><b>Skill</b><span>That prompt, saved as a <code>/command</code> you reuse.</span></div><div class="cmd">/command</div></div>
+        <div class="rung t3"><div class="n">3</div><div class="body"><b>Subagent</b><span>A skill that runs in its own context, with its own tools.</span></div><div class="cmd">delegate</div></div>
+      </div>
+
+      <h3><span style="color:var(--t1)">1 ·</span> Prompt — you type it</h3>
+      <p>A prompt is just what you write into Claude. No setup, nothing saved. It&#39;s the right tool the first time you do something, or for anything you&#39;ll only ever do once.</p>
+      <div class="codewrap"><pre><span class="p">❯</span> List every state Acme&#39;s user-management table row needs:
+  default, hover, selected, loading, error, empty, and
+  no-permission. For each, the trigger and what changes.</pre></div>
+      <p><strong>Stay here when:</strong> the task is a one-off, or you&#39;re still figuring out what you even want. Don&#39;t save a prompt you&#39;ll never run again — that&#39;s just clutter.</p>
+
+      <h3><span style="color:var(--t2)">2 ·</span> Skill — you save it</h3>
+      <p>The moment you&#39;ve typed something close to the same prompt a third time, it wants to be a skill. A skill is that prompt written once into a file, invoked with a <code>/command</code>. The reusable 90% lives in the file; you type only the 10% that changes.</p>
+      <div class="codewrap"><pre><span class="c"># ~/.claude/skills/spec-interaction/SKILL.md</span>
+<span class="c">---</span>
+<span class="p">name</span>: spec-interaction
+<span class="p">description</span>: Turn a described interaction into a state
+  table, variant matrix, and open questions.
+<span class="c">---</span>
+You are a staff product designer. Produce ONLY a state
+table, a variant matrix, and the open questions.
+
+Interaction: <span class="v">$ARGUMENTS</span></pre></div>
+      <p>Now any session, on any project, you type <span class="k2"><span class="pr">❯</span>/spec-interaction Acme table row actions</span> and get the same disciplined output. <a href="index.html#">The Skills library</a> is a set of these, ready to copy in.</p>
+      <div class="callout rule">
+        <span class="eyebrow">The graduation rule</span>
+        <p>Typed something structurally similar <strong>three times</strong>? That&#39;s the signal to make it a skill. Not twice — twice might be coincidence. Three times is a pattern, and patterns are what you automate.</p>
+      </div>
+
+      <h3><span style="color:var(--t3)">3 ·</span> Subagent — you delegate it</h3>
+      <p>A subagent is a skill with its own room. It runs in a <em>separate</em> context window, with its own instructions, its own tool access, and its own permissions — then hands back just the result. You reach for one when a job is big enough, or noisy enough, that you don&#39;t want it cluttering your main session.</p>
+      <div class="codewrap"><pre><span class="c"># ~/.claude/agents/a11y-reviewer.md</span>
+<span class="c">---</span>
+<span class="p">name</span>: a11y-reviewer
+<span class="p">description</span>: Audits a screen against WCAG 2.2 AA. Use
+  after any UI change. Reports blockers, then improvements.
+<span class="p">tools</span>: Read, Grep, Glob
+<span class="c">---</span>
+You are an accessibility specialist. Review the design and
+report contrast, keyboard, focus and target-size issues...</pre></div>
+      <p><strong>Reach for a subagent when:</strong> the task can run on its own (a full accessibility sweep), when it&#39;d flood your session with output (reading a huge file), or when you want to run several checks in parallel. The easiest way to make one is the <code>/agents</code> command, which walks you through it.</p>
+
+      <div class="callout warn">
+        <span class="eyebrow">One level up — for later</span>
+        <p>Beyond subagents sit <strong>agent teams</strong>: multiple agents that coordinate across sessions and message each other. It&#39;s powerful, experimental, and off by default — genuinely useful once you&#39;re fluent, and a distraction before then. This guide covers it last, on purpose.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== decision guide ===== -->
+  <section class="band">
+    <div class="wrap measure">
+      <div class="sec-head"><h2>Which rung do I reach for?</h2></div>
+      <p class="sec-sub">When you&#39;re unsure, this is the whole decision.</p>
+
+      <div class="ladder">
+        <div class="rung t1"><div class="n">?</div><div class="body"><b>Doing it once, or still exploring?</b><span>Use a prompt. Don&#39;t over-build.</span></div><div class="cmd">→ Prompt</div></div>
+        <div class="rung t2"><div class="n">?</div><div class="body"><b>Done it three times the same way?</b><span>Save it as a skill.</span></div><div class="cmd">→ Skill</div></div>
+        <div class="rung t3"><div class="n">?</div><div class="body"><b>Needs isolation, heavy output, or parallelism?</b><span>Delegate to a subagent.</span></div><div class="cmd">→ Subagent</div></div>
+      </div>
+
+      <div class="callout tip">
+        <span class="eyebrow">Don&#39;t skip rungs</span>
+        <p>The temptation is to build a subagent for everything on day one. Resist it. Most of your value comes from a handful of good skills. Over-building agents makes Claude&#39;s automatic delegation <em>less</em> reliable, not more — a sprawling roster of specialists is harder to route than a tight one.</p>
+      </div>
+
+      <p style="margin-top:24px">That&#39;s the foundation. Everything else in this guide is these three rungs applied to real design work. The prompt library is being built next — for now, the <a href="index.html">start page</a> has the install steps if you haven&#39;t set up Claude Code yet.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>AI for Designers — a living guide to Claude Code for product design.</span>
+    <a href="index.html">Start</a>
+    <span class="credit">Skills structure inspired by mattpocock/skills</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.codewrap').forEach(w=>{
+  const pre=w.querySelector('pre'); if(!pre) return;
+  const b=document.createElement('button'); b.className='copy'; b.type='button'; b.textContent='Copy';
+  b.addEventListener('click',async()=>{
+    try{ await navigator.clipboard.writeText(pre.innerText); b.textContent='Copied'; b.classList.add('done');
+      setTimeout(()=>{b.textContent='Copy';b.classList.remove('done')},1400);
+    }catch(e){ b.textContent='Select manually'; }
+  });
+  w.appendChild(b);
+});
+</script>
+</body>
+</html>

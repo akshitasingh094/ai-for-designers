@@ -1,0 +1,52 @@
+/* ============================================================================
+   TOKENS — the single source of visual truth for the whole repo.
+   Change a value here and every page updates. Nothing elsewhere hardcodes
+   a colour, font, radius or width.
+
+   The tier ramp (--t1 / --t2 / --t3) is meaningful, not decorative:
+   it encodes the learning ladder — Prompt (t1) → Skill (t2) → Subagent (t3).
+   Use the matching tier colour wherever you refer to one of those concepts.
+   ========================================================================== */
+:root{
+  /* surfaces — warm light, deliberately not cream (#F4F1EA reads as AI-default) */
+  --paper:#E7E6E1;
+  --paper-2:#F1F0EB;
+  --card:#FCFBF8;
+
+  /* ink */
+  --ink:#17171C;
+  --ink-2:#52525E;
+  --ink-3:#86868F;
+
+  /* rules */
+  --rule:#D6D4CC;
+  --rule-soft:#E6E4DD;
+
+  /* tier ramp — the ladder. deepening violet-indigo. */
+  --t1:#6C5CE0;  --t1-soft:#E8E4FB;  --t1-line:#CFC6F5;   /* Prompt   */
+  --t2:#4531C9;  --t2-soft:#DFD9F8;  --t2-line:#BFB4F0;   /* Skill    */
+  --t3:#241680;  --t3-soft:#D7D2EC;  --t3-line:#B3AAD8;   /* Subagent */
+  --t2-ink:#31219E;                                        /* readable violet text */
+
+  /* semantic accents */
+  --go:#0E7C66;    --go-soft:#D6EDE6;   --go-line:#B2DccF;  /* create / positive */
+  --warn:#9A6209;  --warn-soft:#F7EAD2; --warn-line:#E7D3A6;/* caution           */
+  --stop:#963030;  --stop-soft:#FBE7E7; --stop-line:#EEC5C5;/* blocker           */
+
+  /* radii */
+  --r-s:5px; --r-m:11px; --r-l:20px;
+
+  /* elevation */
+  --shadow:0 1px 2px rgba(23,23,28,.05), 0 10px 30px -16px rgba(23,23,28,.22);
+  --shadow-lg:0 2px 6px rgba(23,23,28,.06), 0 24px 50px -24px rgba(36,22,128,.30);
+
+  /* type */
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'Inter Tight',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  /* layout */
+  --nav-h:56px;
+  --measure:72ch;
+  --gutter:40px;
+}

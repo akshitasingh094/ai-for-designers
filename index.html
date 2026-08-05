@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI for Designers — Claude Code, for UI/UX &amp; product designers</title>
+<meta name="description" content="A practical, production-ready guide to integrating Claude Code into your everyday design workflow. Prompts, Skills, and Subagents for UI/UX and product designers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+</head>
+<body>
+
+<!-- ===== shared nav (kept in sync by hand across pages — no build step) ===== -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html"><span class="glyph">❯</span><b>AI for Designers</b></a>
+    <div class="nav-links">
+      <a href="index.html" aria-current="page">Start</a>
+      <a href="foundations.html">Foundations</a>
+      <a href="prompting.html">Prompts</a>
+      <span class="soon">Skills</span>
+      <span class="soon">Path</span>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- ===== hero ===== -->
+  <header class="hero grid-wash">
+    <div class="wrap">
+      <div class="eyebrow">Claude Code · for UI/UX &amp; product designers</div>
+      <h1>Stop doing by hand what you&#39;ve already done twice.</h1>
+      <p class="lede">A practical guide to building AI into your <strong>everyday</strong> design work — not prompt tricks, but a repeatable system. In a week you&#39;ll turn the tasks you repeat into tools that run themselves.</p>
+
+      <div class="measure" style="margin-top:34px">
+        <div class="term" aria-label="Example of the prompt to skill to subagent progression">
+          <div class="term-bar"><i></i><i></i><i></i><span>the whole idea, in three lines</span></div>
+          <div class="term-body">
+<span class="pr">❯</span> spec the states for Acme&#39;s user-table row actions<span class="out">   → you type it once</span><br>
+<span class="pr">❯</span> /spec-interaction<span class="out">                          → you saved it as a Skill</span><br>
+<span class="pr">❯</span> delegate the a11y audit to a Subagent<span class="ok">        → it runs on its own</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== who it's for ===== -->
+  <section class="band">
+    <div class="wrap measure">
+      <div class="sec-head"><h2>Who this is for</h2></div>
+      <p>You&#39;re a designer — anywhere from your first year to your fifteenth. You&#39;re good at the craft. You&#39;ve maybe asked Claude to rewrite some copy or rough out a screen, but you couldn&#39;t honestly call yourself an <em>AI-powered</em> designer yet. You don&#39;t need theory about large language models. You need to know which tool to reach for, when, and how to make it repeatable.</p>
+      <p>That&#39;s the whole scope of this guide. Everything here is built for <strong>Claude Code</strong> specifically — the version of Claude that lives in your terminal and can read and write real files on your machine. Other tools come in a later version; this one earns its place first.</p>
+    </div>
+  </section>
+
+  <!-- ===== the one idea ===== -->
+  <section class="band">
+    <div class="wrap measure">
+      <div class="sec-head"><h2>The one idea</h2></div>
+      <p class="sec-sub">Every technique in this guide is a rung on the same ladder. The work you repeat climbs it — from something you type, to something you save, to something that runs without you.</p>
+
+      <div class="ladder">
+        <div class="rung t1">
+          <div class="n">1</div>
+          <div class="body"><b>Prompt</b><span>You type it. Great for one-offs. Zero setup, nothing saved.</span></div>
+          <div class="cmd">paste once</div>
+        </div>
+        <div class="rung t2">
+          <div class="n">2</div>
+          <div class="body"><b>Skill</b><span>You saved the prompt as a reusable <code>/command</code>. Same words, now on tap.</span></div>
+          <div class="cmd">/command</div>
+        </div>
+        <div class="rung t3">
+          <div class="n">3</div>
+          <div class="body"><b>Subagent</b><span>A skill that runs in its own space, with its own tools — delegated work.</span></div>
+          <div class="cmd">delegate</div>
+        </div>
+      </div>
+
+      <p style="margin-top:22px">Knowing which rung a task belongs on is the single most useful thing this guide teaches. <a href="foundations.html">Start with the foundations →</a></p>
+    </div>
+  </section>
+
+  <!-- ===== getting started with claude code ===== -->
+  <section class="band">
+    <div class="wrap measure">
+      <div class="sec-head"><h2>First, get Claude Code running</h2></div>
+      <p class="sec-sub">If the terminal isn&#39;t your home turf, that&#39;s expected — most designers&#39; isn&#39;t. This takes about two minutes, and you only do it once.</p>
+
+      <div class="callout warn">
+        <span class="eyebrow">One prerequisite</span>
+        <p>Claude Code needs a paid plan — Claude Pro, Max, Team, Enterprise, or an API account. The free Claude.ai tier doesn&#39;t include it. Check your plan before installing, or you&#39;ll hit a wall at first launch.</p>
+      </div>
+
+      <h3>1 · Install it</h3>
+      <p>Open your terminal (on a Mac that&#39;s <strong>Terminal</strong> or <strong>iTerm</strong>; search Spotlight for &ldquo;terminal&rdquo;). Paste one line and press return. The native installer needs no Node, no setup — it brings everything with it.</p>
+      <div class="codewrap"><pre><span class="c"># macOS, Linux, or WSL</span>
+curl -fsSL https://claude.ai/install.sh | bash
+
+<span class="c"># Windows — in PowerShell</span>
+irm https://claude.ai/install.ps1 | iex</pre></div>
+
+      <h3>2 · Start it and sign in</h3>
+      <p>Close that terminal, open a fresh one so it picks up the new command, then run:</p>
+      <div class="codewrap"><pre><span class="p">❯</span> claude</pre></div>
+      <p>The first launch opens your browser to log in. Authorise it, and you&#39;re connected — the token is stored on your machine, so you won&#39;t do this again.</p>
+
+      <h3>3 · Confirm it&#39;s healthy</h3>
+      <div class="codewrap"><pre><span class="p">❯</span> claude doctor   <span class="c"># checks the install, PATH, and updates</span></pre></div>
+
+      <div class="callout tip">
+        <span class="eyebrow">If something snags</span>
+        <p><code>command not found</code> almost always means your terminal has a stale path — close it and open a new one. Anything else, the official docs have the fix: <a href="https://docs.claude.com/en/docs/claude-code/overview">docs.claude.com/en/docs/claude-code</a>. Install commands change; when in doubt, trust the docs over any copy here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== where to go ===== -->
+  <section class="band">
+    <div class="wrap">
+      <div class="measure"><div class="sec-head"><h2>Where to go next</h2></div>
+      <p class="sec-sub">The foundations are live. The libraries and the guided path are being built out — this is a growing resource.</p></div>
+      <div class="cards">
+        <a class="card" href="foundations.html">
+          <span class="k">Read first</span>
+          <h4>Foundations</h4>
+          <p>The prompt → skill → subagent ladder, and where AI genuinely helps versus where it doesn&#39;t.</p>
+          <span class="go">Start here →</span>
+        </a>
+        <a class="card" href="prompting.html">
+          <span class="k">Library</span>
+          <h4>Prompts</h4>
+          <p>A curated, copy-ready prompt for every corner of design work, organised by task.</p>
+          <span class="go">Browse prompts →</span>
+        </a>
+        <div class="card disabled">
+          <span class="k">Library</span>
+          <h4>Skills</h4>
+          <p>Reusable <code>/commands</code> you install once and reach for daily.</p>
+          <span class="go">Coming next</span>
+        </div>
+        <div class="card disabled">
+          <span class="k">Guided</span>
+          <h4>The 7-day path</h4>
+          <p>A day-by-day track from first prompt to your first working subagent.</p>
+          <span class="go">Coming next</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>AI for Designers — a living guide to Claude Code for product design.</span>
+    <a href="foundations.html">Foundations</a>
+    <span class="credit">Skills structure inspired by mattpocock/skills</span>
+  </div>
+</footer>
+
+<script>
+/* copy buttons — added to every code block, on every page */
+document.querySelectorAll('.codewrap').forEach(w=>{
+  const pre=w.querySelector('pre'); if(!pre) return;
+  const b=document.createElement('button'); b.className='copy'; b.type='button'; b.textContent='Copy';
+  b.addEventListener('click',async()=>{
+    try{ await navigator.clipboard.writeText(pre.innerText); b.textContent='Copied'; b.classList.add('done');
+      setTimeout(()=>{b.textContent='Copy';b.classList.remove('done')},1400);
+    }catch(e){ b.textContent='Select manually'; }
+  });
+  w.appendChild(b);
+});
+</script>
+</body>
+</html>
