@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Subagents — AI for Designers</title>
+<meta name="description" content="Subagents for designers: delegated work that runs in its own context with its own tools. Plus a note on agent teams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+</head>
+<body>
+<nav class="nav"><div class="nav-in">
+  <a class="brand" href="index.html"><span class="glyph">❯</span><b>AI for Designers</b></a>
+  <div class="nav-links">
+      <a href="index.html">Start</a>
+      <a href="foundations.html">Foundations</a>
+      <a href="prompting.html">Prompts</a>
+      <a href="skills.html">Skills</a>
+      <a href="subagents.html" aria-current="page">Subagents</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="path.html">Path</a>
+    </div>
+</div></nav>
+
+<main>
+  <header class="hero grid-wash">
+    <div class="wrap">
+      <div class="eyebrow">Library · rung 3 — subagents</div>
+      <h1>Work you hand off, entirely.</h1>
+      <p class="lede">A <strong>subagent</strong> is a skill with its own room — it runs in a separate context, with its own tools and permissions, and hands back just the result. You reach for one when a job is big enough, or noisy enough, that you don&#39;t want it in your main session.</p>
+    </div>
+  </header>
+
+  <section class="band">
+    <div class="wrap measure">
+      <div class="sec-head"><h2>Skill or subagent?</h2></div>
+      <p class="sec-sub">Most work stops at a skill. Move up to a subagent only when one of these is true — otherwise you&#39;re adding machinery you don&#39;t need.</p>
+      <div class="compare">
+        <div class="col" style="border-top:3px solid var(--t2)">
+          <h4>A skill is enough when…</h4>
+          <ul>
+            <li>The task runs in your normal back-and-forth</li>
+            <li>You want to see and steer each step</li>
+            <li>The output belongs in the current conversation</li>
+          </ul>
+        </div>
+        <div class="col" style="border-top:3px solid var(--t3)">
+          <h4>Reach for a subagent when…</h4>
+          <ul>
+            <li>The job can run on its own — a full audit, a synthesis pass</li>
+            <li>It would flood your session with output</li>
+            <li>You want to run several checks in parallel</li>
+            <li>It needs different tool access than your main work</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">The everyday payoff</span>
+        <p>Delegating your accessibility sweep to a subagent keeps your main thread about the <em>design</em>. The audit happens in its own space and comes back as a tidy list — your working context stays clean.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap measure">
+      <div class="sec-head"><h2>How to make one</h2></div>
+      <p class="sec-sub">A subagent is a markdown file: frontmatter that tells Claude when to use it, and a body that&#39;s its system prompt. The install on each card below writes one for you — but the easiest way to make your own is the built-in command, which walks you through it.</p>
+      <div class="codewrap"><pre><span class="p">❯</span> /agents      <span class="c"># create, edit, and manage subagents interactively</span></pre></div>
+      <p>The <code>description</code> line is the important part: Claude reads it to decide when to delegate automatically. Write it as a trigger — &ldquo;use proactively after any UI change to…&rdquo; — not just a title.</p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="measure"><div class="sec-head"><h2>A starter set for designers</h2></div>
+      <p class="sec-sub">Five subagents worth installing early. Each is a specialist you can hand a whole task to.</p></div>
+      <div class="lib-toolbar"><div id="subtoolbar"></div></div>
+      <div id="sublib"></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap measure">
+      <div class="sec-head"><h2>One level up: agent teams</h2></div>
+      <div class="callout warn">
+        <span class="eyebrow">For later — on purpose</span>
+        <p>Beyond a single subagent sit <strong>agent teams</strong>: several agents that coordinate, message each other, and carry work across sessions. It&#39;s genuinely powerful — and experimental, off by default, and easy to over-reach with before you&#39;re fluent. Get comfortable with a few good skills and one or two subagents first. When teams earn their place in your workflow, they&#39;ll be obvious; until then, they&#39;re a distraction. This guide covers them last, deliberately.</p>
+      </div>
+      <p>That&#39;s the full ladder — prompt, skill, subagent. If you want a way to actually build the habit, follow <a href="path.html">the 7-day path →</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span>AI for Designers — a living guide to Claude Code for product design.</span>
+  <a href="path.html">The 7-day path</a>
+  <span class="credit">Skills structure inspired by mattpocock/skills</span>
+</div></footer>
+
+<script src="assets/js/data/subagents.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -18,8 +18,8 @@ img{max-width:100%}
   font-family:var(--mono);font-size:11px;font-weight:500;
   letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);
 }
-.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
-.measure{max-width:var(--measure);}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.measure{max-width:var(--measure);margin-inline:auto}
 
 /* ---------- top navigation (shared across pages) ------------------------- */
 .nav{
@@ -27,7 +27,7 @@ img{max-width:100%}
   background:rgba(231,230,225,.82);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--rule);
 }
-.nav-in{display:flex;align-items:center;gap:22px;height:100%;max-width:1280px;margin:0 auto;padding:0 24px}
+.nav-in{display:flex;align-items:center;gap:22px;height:100%;max-width:1100px;margin:0 auto;padding:0 24px}
 .brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font-weight:600}
 .brand .glyph{
   width:22px;height:22px;border-radius:6px;background:var(--t2);color:#fff;flex:none;
@@ -160,47 +160,16 @@ pre .p{color:#9B8CFF}      /* prompt ❯ / key */
 pre .s{color:#7FE0B8}      /* string   */
 pre .v{color:#F0C078}      /* value    */
 .copy{
-  position:absolute;
-  top:10px;
-  right:10px;
-  all:unset;
-  cursor:pointer;
-  margin-top: 12px;
-
-  font-family:var(--mono);
-  font-size:10.5px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-
-  background:#2B2B2B;
-  color:#F8F7F3;
-
-  padding:6px 10px;
-  border:1px solid rgba(0,0,0,.08);
-  border-radius:var(--r-s);
-
-  transition:background .18s ease,color .18s ease,transform .15s ease;
+  position:absolute;top:9px;right:9px;cursor:pointer;appearance:none;-webkit-appearance:none;
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  background:#2E2E3D;color:#EDECF5;border:1px solid rgba(255,255,255,.24);
+  padding:6px 10px;border-radius:var(--r-s);line-height:1;box-shadow:0 1px 3px rgba(0,0,0,.35);
 }
-
-.copy:hover{
-  background:#1D1D1D;
-  color:#fff;
-}
-
-.copy:active{
-  transform:translateY(1px);
-}
-
-.copy:focus-visible{
-  outline:2px solid #9B8CFF;
-  outline-offset:2px;
-}
-
-.copy.done{
-  background:var(--go);
-  color:#fff;
-  border-color:transparent;
-}
+.copy:hover{background:#3C3C50;color:#fff;border-color:rgba(255,255,255,.42)}
+.copy:focus-visible{outline:2px solid #9B8CFF;outline-offset:2px}
+.copy.done{background:var(--go);color:#fff;border-color:var(--go)}
+.copy svg{width:13px;height:13px;flex:none}
 
 /* inline command chip: <span class="k2">❯ claude</span> */
 .k2{font-family:var(--mono);font-size:.9em;background:var(--ink);color:#fff;padding:2px 8px;border-radius:var(--r-s);white-space:nowrap}
@@ -307,4 +276,101 @@ footer .credit{margin-left:auto;font-family:var(--mono);font-size:11.5px}
 
 @media (max-width:620px){
   .lib-grid{grid-template-columns:1fr}
+}
+
+/* ---- skills library extras ---------------------------------------------- */
+.skill-grid{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+.scard-badge{
+  display:inline-block;font-family:var(--mono);font-size:13px;font-weight:700;
+  padding:5px 10px;border-radius:var(--r-s);letter-spacing:.01em;margin-bottom:8px;
+}
+.scard-badge.u{background:var(--ink);color:#fff}
+.scard-badge.u{color:#fff}
+.scard-badge.m{background:var(--t3-soft);color:var(--t3);border:1px solid var(--t3-line)}
+.scard-usage{margin:12px 0}
+.scard-usage .eyebrow{display:block;margin-bottom:5px;color:var(--ink-3)}
+.scard-usage-line code{display:block;background:var(--paper-2);border:1px solid var(--rule-soft);
+  padding:9px 11px;border-radius:var(--r-s);font-size:12px;color:var(--t2-ink);white-space:pre-wrap}
+.scard-usage-line{font-size:13.5px;color:var(--ink-2)}
+.scard-returns{margin:8px 0 0;font-size:13.5px;color:var(--ink-2)}
+.scard-install{margin:6px 0 12px;border:1px solid var(--rule-soft);border-radius:var(--r-s);background:var(--paper-2)}
+.scard-install summary{cursor:pointer;padding:10px 12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--t2-ink);list-style:none}
+.scard-install summary::-webkit-details-marker{display:none}
+.scard-install summary::before{content:"▸ ";color:var(--ink-3)}
+.scard-install[open] summary::before{content:"▾ "}
+.scard-install .codewrap{margin:0 12px}
+.scard-install pre{font-size:11.5px;max-height:280px}
+.scard-hint{padding:8px 12px 12px;margin:0;font-size:12.5px;color:var(--ink-3)}
+.scard-hint code{font-size:.9em}
+.scard .tags{margin-top:auto;padding-top:14px}
+
+/* ---- subagent + path extras --------------------------------------------- */
+.scard-badge.sub{background:var(--t3);color:#fff}
+.scard-tools{display:block;margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+
+/* the 7-day path */
+.day{
+  display:grid;grid-template-columns:64px 1fr;gap:20px;
+  border:1px solid var(--rule);border-left-width:3px;border-radius:var(--r-m);
+  background:var(--card);padding:20px 22px;margin-bottom:14px;box-shadow:var(--shadow);
+}
+.day .daynum{
+  font-family:var(--display);font-weight:800;font-size:34px;line-height:1;color:var(--t2);
+  letter-spacing:-.03em;
+}
+.day .daynum small{display:block;font-family:var(--mono);font-size:9.5px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:4px}
+.day h3{margin:0 0 4px;font-size:19px}
+.day .rung-tag{
+  font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:middle;
+}
+.day .rung-tag.t1{background:var(--t1-soft);color:var(--t1)}
+.day .rung-tag.t2{background:var(--t2-soft);color:var(--t2-ink)}
+.day .rung-tag.t3{background:var(--t3-soft);color:var(--t3)}
+.day .rung-tag.ctx{background:var(--go-soft);color:var(--go)}
+.day p{margin:0 0 10px;font-size:14.5px}
+.day .do{margin:10px 0 0;padding-left:18px}
+.day .do li{margin-bottom:5px;font-size:14px}
+.day .time{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em}
+.day.t1{border-left-color:var(--t1)} .day.t2{border-left-color:var(--t2)}
+.day.t3{border-left-color:var(--t3)} .day.ctx{border-left-color:var(--go)}
+@media(max-width:620px){.day{grid-template-columns:1fr;gap:6px}.day .daynum{font-size:24px}}
+
+/* ---- workflows ---------------------------------------------------------- */
+.wf-card{
+  background:var(--card);border:1px solid var(--rule);border-radius:var(--r-l);
+  padding:24px 26px;margin-bottom:20px;box-shadow:var(--shadow);
+}
+.wf-head h3{margin:0 0 6px;font-size:22px}
+.wf-goal{margin:0 0 12px;font-size:15.5px;color:var(--ink-2)}
+.wf-when{font-size:13.5px;color:var(--ink-3);padding-bottom:14px;border-bottom:1px solid var(--rule-soft);margin-bottom:16px}
+.wf-when .eyebrow{margin-right:8px}
+.wf-steps{list-style:none;margin:0;padding:0;position:relative}
+.wf-step{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:0 0 16px;position:relative}
+.wf-step:not(:last-child)::before{
+  content:"";position:absolute;left:47px;top:26px;bottom:-2px;width:2px;background:var(--rule);
+}
+.wf-rung{
+  height:26px;display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;
+  border-radius:999px;font-weight:700;z-index:1;
+}
+.wf-rung.ctx{background:var(--go-soft);color:var(--go)}
+.wf-rung.t1{background:var(--t1-soft);color:var(--t1)}
+.wf-rung.t2{background:var(--t2-soft);color:var(--t2-ink)}
+.wf-rung.t3{background:var(--t3-soft);color:var(--t3)}
+.wf-step-body b{display:block;font-family:var(--display);font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.wf-step-body span{display:block;font-size:14px;color:var(--ink-2);margin:2px 0 4px}
+.wf-ref{font-family:var(--mono);font-size:12px;color:var(--t2-ink);text-decoration:none}
+.wf-ref:hover{text-decoration:underline}
+.wf-outcome{
+  margin-top:6px;padding:14px 16px;background:var(--go-soft);border:1px solid var(--go-line);
+  border-radius:var(--r-m);font-size:14px;color:#0a5c4c;
+}
+.wf-outcome .eyebrow{display:block;margin-bottom:3px;color:var(--go)}
+.wf-card .tags{margin-top:14px}
+@media(max-width:620px){
+  .wf-step{grid-template-columns:1fr;gap:6px}
+  .wf-step:not(:last-child)::before{display:none}
 }

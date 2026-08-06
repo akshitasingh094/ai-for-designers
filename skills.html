@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Skills Library — AI for Designers</title>
+<meta name="description" content="A Claude Code Skills library for UI/UX and product designers. User-invoked commands and model-invoked standing rules, each with a copy-paste install.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html"><span class="glyph">❯</span><b>AI for Designers</b></a>
+    <div class="nav-links">
+      <a href="index.html">Start</a>
+      <a href="foundations.html">Foundations</a>
+      <a href="prompting.html">Prompts</a>
+      <a href="skills.html" aria-current="page">Skills</a>
+      <a href="subagents.html">Subagents</a>
+      <a href="workflows.html">Workflows</a>
+      <a href="path.html">Path</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <header class="hero grid-wash">
+    <div class="wrap">
+      <div class="eyebrow">Library · rung 2 — skills</div>
+      <h1>Prompts you saved, so you never retype them.</h1>
+      <p class="lede">A <strong>skill</strong> is a prompt written into a file and invoked with a <code>/command</code>. Each one below installs with a single copy-paste — no repo, no setup. They come in two kinds, and the difference matters.</p>
+    </div>
+  </header>
+
+  <!-- ===== the two kinds ===== -->
+  <section class="band">
+    <div class="wrap measure">
+      <div class="compare">
+        <div class="col good">
+          <h4>❯ User-invoked</h4>
+          <p style="font-size:14.5px;margin:0">You type <code>/name</code> to run them. The verbs of your workflow — spec this, audit that, hand this off. You decide when.</p>
+        </div>
+        <div class="col" style="border-top:3px solid var(--t3)">
+          <h4>Model-invoked</h4>
+          <p style="font-size:14.5px;margin:0">No command. Claude reaches for them automatically when your task matches their description. Standing rules — your accessibility floor, your writing voice — always on.</p>
+        </div>
+      </div>
+      <div class="callout tip">
+        <span class="eyebrow">How to think about it</span>
+        <p>User-invoked skills are tools you pick up. Model-invoked skills are habits you install once and forget — they quietly shape every relevant answer without you asking. A strong setup has a handful of each.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== install primer ===== -->
+  <section class="band">
+    <div class="wrap measure">
+      <div class="sec-head"><h2>Installing a skill</h2></div>
+      <p class="sec-sub">Every card has a copy-paste install. It writes the skill straight into your Claude Code skills folder — you don&#39;t need this repo cloned. To confirm what you&#39;ve got:</p>
+      <div class="codewrap"><pre><span class="p">❯</span> ls ~/.claude/skills     <span class="c"># everything you've installed, across all projects</span></pre></div>
+      <div class="callout rule">
+        <span class="eyebrow">These are yours to change</span>
+        <p>Once installed, a skill is just a markdown file you own. Used one five times and kept correcting the same thing by hand? Open its <code>SKILL.md</code> and fold the fix in. The version you end up with beats the one you were handed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== the library ===== -->
+  <section class="band">
+    <div class="wrap">
+      <div class="lib-toolbar"><div id="skilltoolbar"></div></div>
+      <div id="skilllib"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>AI for Designers — a living guide to Claude Code for product design.</span>
+    <a href="prompting.html">Prompts</a>
+    <span class="credit">Skills structure inspired by mattpocock/skills</span>
+  </div>
+</footer>
+
+<script src="assets/js/data/skills.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

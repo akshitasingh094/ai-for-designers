@@ -1,0 +1,36 @@
+# Standing context
+
+Copy this to your project folder as `CLAUDE.md` and fill in the brackets.
+Claude Code reads it at the start of every session, so you stop re-explaining
+the same context in every prompt. This is the highest-leverage file in your setup.
+
+---
+
+## Who I am
+[Your role] — a designer who cares about the reasoning, not just the output.
+Name the UX principle behind recommendations.
+
+## Product
+[Product name], [platform: web / tablet / mobile / all], [theme: light / dark / both].
+Primary users: [who], working in [context — at a desk, in the field, on a tablet].
+
+## Design system
+Library: [name]. Token naming: [convention].
+Type scale: [values]. Spacing: [values]. Radius: [values].
+Component naming: `Category/Component Name`.
+
+## Non-negotiables
+- Reuse existing tokens and components; flag anything new before creating it.
+- WCAG 2.2 AA minimum.
+- No hover-only affordances — [platform] users are often on touch.
+- Components with variants, not one-off frames.
+
+## How I want you to work
+- Break anything over ~3 dependent steps into named checkpoints.
+- If I ask you to confirm understanding AND start working in the same message,
+  stop after the confirmation and ask.
+- Flag repeated patterns in my requests and tell me how to automate them.
+- List assumptions explicitly.
+
+## Current project
+[One paragraph: what we're building and what's already decided.]
