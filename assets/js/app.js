@@ -259,7 +259,7 @@ function renderSubagents(){
   const count = document.createElement('div'); count.className='lib-count';
   const search = document.createElement('input');
   search.className='lib-search'; search.type='search';
-  search.placeholder='Search subagents…';
+  search.placeholder='Search subagents, tags…';
   search.setAttribute('aria-label','Search subagents');
   search.addEventListener('input',e=>{ query=e.target.value.toLowerCase().trim(); render(); });
   toolbar.appendChild(search); toolbar.appendChild(count);
@@ -272,7 +272,7 @@ function renderSubagents(){
     const shown=items.filter(matches);
     count.textContent=shown.length+(shown.length===1?' subagent':' subagents');
     mount.innerHTML='';
-    if(!shown.length){ mount.innerHTML='<p class="lib-empty">No subagents match that.</p>'; return; }
+    if(!shown.length){ mount.innerHTML='<p class="lib-empty">No subagents match that. Try a different word, or clear the filter.</p>'; return; }
     const grid=document.createElement('div'); grid.className='lib-grid skill-grid';
     shown.forEach(s=>grid.appendChild(card(s)));
     mount.appendChild(grid);
@@ -323,7 +323,7 @@ function renderWorkflows(){
   const count = document.createElement('div'); count.className='lib-count';
   const search = document.createElement('input');
   search.className='lib-search'; search.type='search';
-  search.placeholder='Search workflows…';
+  search.placeholder='Search workflows, tags…';
   search.setAttribute('aria-label','Search workflows');
   search.addEventListener('input',e=>{ query=e.target.value.toLowerCase().trim(); render(); });
   toolbar.appendChild(search); toolbar.appendChild(count);
@@ -337,7 +337,7 @@ function renderWorkflows(){
     const shown=items.filter(matches);
     count.textContent=shown.length+(shown.length===1?' workflow':' workflows');
     mount.innerHTML='';
-    if(!shown.length){ mount.innerHTML='<p class="lib-empty">No workflows match that.</p>'; return; }
+    if(!shown.length){ mount.innerHTML='<p class="lib-empty">No workflows match that. Try a different word, or clear the filter.</p>'; return; }
     shown.forEach(w=>mount.appendChild(card(w)));
   }
   function card(w){
