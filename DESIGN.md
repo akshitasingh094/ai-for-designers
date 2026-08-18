@@ -32,7 +32,7 @@ colors:
 typography:
   display:
     fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
-    fontSize: "clamp(38px, 6vw, 68px)"
+    fontSize: "clamp(40px, 7vw, 84px)"
     fontWeight: 800
     lineHeight: 0.98
     letterSpacing: "-0.035em"
@@ -94,7 +94,7 @@ components:
     padding: "6px 10px"
   tag:
     backgroundColor: "{colors.card}"
-    textColor: "{colors.ink-3}"
+    textColor: "{colors.ink-2}"
     rounded: "999px"
     padding: "4px 9px"
 ---
@@ -133,7 +133,7 @@ Warm neutral paper and near-black ink carry the reading experience; a single dee
 - **Card White** (#FCFBF8): the raised-surface color for every card, rung, callout, and code block chrome.
 - **Ink** (#17171C): primary text, headings, strong emphasis.
 - **Ink, Muted** (#52525E): body copy default color.
-- **Ink, Faint** (#86868F): tertiary text — timestamps, tag labels, placeholder-weight captions.
+- **Ink, Faint** (#86868F): reserved for the `showcase.html` demo product's own palette only (it plays a fictional Acme product, not this site's chrome). Every real body-scale text on the actual guide uses Ink or Ink, Muted — Ink, Faint fails WCAG AA (~2.9:1) against both Paper and Card and must never carry real reader-facing text.
 - **Rule** (#D6D4CC) / **Rule, Soft** (#E6E4DD): hairline dividers — `Rule` for structural borders (nav, cards), `Rule, Soft` for lighter internal separators (section bands).
 
 ### Named Rules
@@ -150,7 +150,7 @@ Warm neutral paper and near-black ink carry the reading experience; a single dee
 **Character:** A variable-optical-size display face (Bricolage Grotesque, weights 400–800) gives headlines a slightly condensed, confident geometry at tight negative tracking; Inter Tight carries long-form reading at a generous 1.62 line-height; JetBrains Mono is used liberally and structurally, not just for code — it's the system's "this is a command, a label, or a piece of UI chrome" signal.
 
 ### Hierarchy
-- **Display** (800, `clamp(38px, 6vw, 68px)`, line-height 0.98, tracking -0.035em): page hero `h1` only.
+- **Display** (800, `clamp(40px, 7vw, 84px)`, line-height 0.98, tracking -0.035em): page hero `h1` only. Every hero leads with this headline directly — no eyebrow or kicker above it (see Do's and Don'ts).
 - **Headline** (600, `clamp(24px, 3vw, 33px)`, tracking -0.02em): section `h2`.
 - **Title** (600, 19–20px, tracking -0.01em): `h3`, card headings.
 - **Body** (400, 16.5px, line-height 1.62): default paragraph text; lede paragraphs step up to 19px.
@@ -176,7 +176,7 @@ Ambient, always-on soft shadows — not a hover reward. Every raised surface (ca
 
 ## Shapes
 
-Three-step radius scale, all small: `5px` (buttons, chips, inline code, tags-as-pills use `999px` fully round instead), `11px` (the default for cards, rungs, callouts, day blocks — the system's "this is a raised panel" signal), `20px` (reserved for larger showcase-style containers). Borders are hairline `1px` in `Rule`, with several signature components (ladder rungs, callouts, day blocks) adding a `3px` colored left border keyed to their tier/semantic meaning — a left accent bar is this system's way of tagging a block's category without needing a badge.
+Three-step radius scale, all small: `5px` (buttons, chips, inline code, tags-as-pills use `999px` fully round instead), `11px` (the default for cards, rungs, callouts, day blocks — the system's "this is a raised panel" signal), `20px` (reserved for larger showcase-style containers). Borders are a uniform hairline `1px` in `Rule` (or a semantic `-line` tint on a tinted surface) on every side — no accent border on any edge. Category and tier meaning live in a colored number badge, a tinted background, or a colored heading, never in a border; a colored `border-left`/`border-top` accent is a rejected pattern here (see Do's and Don'ts).
 
 ## Components
 
@@ -184,10 +184,10 @@ Three-step radius scale, all small: `5px` (buttons, chips, inline code, tags-as-
 Sticky, `56px`, translucent Paper with backdrop blur and a bottom hairline rule. Brand mark is the `❯` glyph in a `6px`-radius Skill Violet square. Links are mono, uppercase, 11.5px, widely tracked; the active page gets a solid Skill Violet pill (white text), other links get a Skill Violet Soft wash on hover. A "coming soon" link gets a small mono "soon" badge instead of a real hover state.
 
 ### Ladder Rung (signature)
-Three-column grid (number badge · label+description · trailing command hint) with a `3px` left border and matching colored number badge, keyed to tier (Prompt/Skill/Subagent). Rungs animate in on load with a staggered slide-up-and-fade (50ms/150ms/250ms delay). On mobile, the trailing command hint is dropped, not shrunk.
+Three-column grid (number badge · label+description · trailing command hint), tier (Prompt/Skill/Subagent) carried entirely by the colored number badge — a plain hairline border on all sides, no accent edge. Rungs animate in on load with a staggered slide-up-and-fade using a smooth exponential ease-out (`cubic-bezier(.16,1,.3,1)`, no overshoot/bounce), 50ms/150ms/250ms delay. On mobile, the trailing command hint is dropped, not shrunk.
 
 ### Callout
-Card-styled box with a `3px` left accent border and an eyebrow label, in four semantic variants: `tip` (Skill Violet — guidance), `rule` (Create Green — a hard rule/doctrine), `warn` (Caution Amber — a gotcha), `stop` (Blocker Red — a hard blocker). Body text darkens to a variant-specific readable shade rather than staying at default Ink-2.
+Card-styled box, tinted background per semantic variant with a matching `-line` border tint (no border accent on any single edge) and an eyebrow label: `tip` (Skill Violet — guidance), `rule` (Create Green — a hard rule/doctrine), `warn` (Caution Amber — a gotcha), `stop` (Blocker Red — a hard blocker). Body text darkens to a variant-specific readable shade rather than staying at default Ink-2.
 
 ### Cards / Containers
 - **Corner style:** 11px (default) or 20px for larger showcase panels.
@@ -195,6 +195,9 @@ Card-styled box with a `3px` left accent border and an eyebrow label, in four se
 - **Shadow strategy:** Ambient at rest, Lifted + 2px translateY on hover (interactive cards only).
 - **Border:** 1px Rule, tightening to Skill Violet Line on interactive hover.
 - **Internal padding:** 20px is the default card padding; library/prompt cards follow the same scale.
+
+### Two-Column Compare
+A pair of `.compare .col` panels for genuine either/or or fit/not-fit content. Semantic variants tint the whole panel (background + `-line` border + heading color): `good`/`bad` (Create Green / Blocker Red) for a real fit/not-fit judgment, `tier-t2`/`tier-t3` (Skill Violet / Subagent Indigo) when the two columns are a genuine ladder-tier choice. A neutral, untinted `.col` (no variant class) is correct when the two columns are just different — not better/worse, not different tiers.
 
 ### Code Block + Copy Button
 Dark terminal-toned block (`#15151C` background, `#E7E6EF` text) independent of the light paper system — this is the one place the system deliberately inverts. Inline `<code>` instead stays in the light system: Skill Violet Soft background, Skill Violet Ink text. A floating mono copy button sits top-right of every block; it turns Create Green with a checkmark on successful copy, reverting after a timeout.
@@ -206,7 +209,7 @@ The hero's three-line demo terminal: dark chrome (`#1D1D26` title bar with three
 Used on the prompts/skills libraries: category eyebrow (mono, Skill Violet Ink), title, description, an inset "when to use" box (Paper 2 background), a collapsible `<details>` example section, and tags pinned to the card's bottom edge via `margin-top:auto`.
 
 ### Day Block (7-day path)
-Two-column grid: large display-weight day number (Skill Violet) beside title + description + do-list, with a `3px` left border colored by which rung the day teaches (or Create Green for a "context" day). Structurally identical to Ladder Rung's left-accent pattern, scaled up for narrative content.
+Two-column grid: large display-weight day number (Skill Violet) beside title + description + do-list. Which rung the day teaches (or "context" for a non-rung day) is carried entirely by a small colored `.rung-tag` pill next to the heading — a plain hairline border on all sides, no accent edge.
 
 ## Do's and Don'ts
 
@@ -215,7 +218,8 @@ Two-column grid: large display-weight day number (Skill Violet) beside title + d
 - **Do** pair every accent color with its own `-soft` background and `-line` border tint rather than placing a solid accent directly on Paper.
 - **Do** set structural/interface text (nav, eyebrows, tags, code, terminal) in JetBrains Mono, uppercase, widely tracked where it's a label.
 - **Do** give every card-like surface an ambient shadow at rest (11px radius, 1px Rule border) — nothing floats with zero elevation.
-- **Do** use the `3px` colored left-border pattern (rung, callout, day block) to tag a block's category without adding a badge.
+- **Do** carry category/tier meaning with a colored number badge, a tinted background, or a colored heading — never a border accent.
+- **Do** let every hero `h1` lead the page directly, with the lede paragraph doing any framing a label might otherwise carry.
 
 ### Don't:
 - **Don't** use a bright/pure white or cream background — Paper is deliberately warm and slightly desaturated ("#F4F1EA reads as AI-default" is the system's own stated rejection).
@@ -223,3 +227,8 @@ Two-column grid: large display-weight day number (Skill Violet) beside title + d
 - **Don't** make elevation hover-only. Shadows here are ambient/material; hover deepens an existing shadow, it doesn't create one from flat.
 - **Don't** set headline or body prose in JetBrains Mono — mono means interface chrome, not narration.
 - **Don't** hand-roll a new border-radius value outside 5px / 11px / 20px (or 999px for fully round pills/chips).
+- **Don't** put a kicker or eyebrow label above an `h1`/`h2` headline — deliberately removed sitewide as a recognizable AI-generated-UI tell; the headline carries its own weight. (A callout's or card's small annotation label above body copy, with no heading involved, is a different, legitimate pattern and stays.)
+- **Don't** add a colored `border-left`/`border-top` accent to a card, rung, callout, day block, or compare panel — deliberately removed sitewide; use a badge, a tinted background, or a colored heading instead.
+- **Don't** draw a decorative hairline grid, dot-grid, or line-field behind a hero — deliberately removed; trust the type and the terminal demo to carry the hero, not a background texture.
+- **Don't** use overshoot/bounce easing (a cubic-bezier with a value over 1, e.g. the old `cubic-bezier(.2,.9,.3,1.25)`) — replaced sitewide with a smooth exponential ease-out (`cubic-bezier(.16,1,.3,1)`); real motion here decelerates, it doesn't spring past its target.
+- **Don't** use Ink, Faint (`--ink-3`) for any real reader-facing text on the actual guide pages — it fails WCAG AA against Paper and Card. It is reserved for the `showcase.html` demo product's own separate palette.
