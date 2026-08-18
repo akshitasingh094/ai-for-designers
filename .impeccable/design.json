@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-18T19:01:54Z",
+  "title": "Design System: AI for Designers",
+  "extensions": {
+    "colorMeta": {
+      "prompt-violet": { "role": "primary", "displayName": "Prompt Violet", "canonical": "#6C5CE0", "tonalRamp": ["#130c40", "#231778", "#3121ab", "#4631d8", "#7465e2", "#a298eb", "#d1ccf5", "#eceafb"] },
+      "skill-violet": { "role": "primary", "displayName": "Skill Violet", "canonical": "#4531C9", "tonalRamp": ["#150f3e", "#271c73", "#3828a4", "#4e3acf", "#7a6bdb", "#a69de7", "#d3cef3", "#edeafa"] },
+      "subagent-indigo": { "role": "primary", "displayName": "Subagent Indigo", "canonical": "#241680", "tonalRamp": ["#120b41", "#22157a", "#311eae", "#452edb", "#7362e4", "#a297ed", "#d0cbf6", "#ece9fb"] },
+      "create-green": { "role": "semantic-positive", "displayName": "Create Green", "canonical": "#0E7C66", "tonalRamp": ["#084539", "#0e806a", "#15b797", "#23e6bf", "#5aeccf", "#91f3df", "#c8f9ef", "#e8fcf8"] },
+      "caution-amber": { "role": "semantic-caution", "displayName": "Caution Amber", "canonical": "#9A6209", "tonalRamp": ["#482e04", "#875608", "#c17b0b", "#f19d18", "#f5b652", "#f8ce8b", "#fce7c5", "#fef5e7"] },
+      "blocker-red": { "role": "semantic-blocker", "displayName": "Blocker Red", "canonical": "#963030", "tonalRamp": ["#3a1313", "#6c2323", "#9b3131", "#c44646", "#d27474", "#e1a2a2", "#f0d1d1", "#f9ecec"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#17171C", "tonalRamp": ["#23232a", "#40404e", "#5c5c70", "#797991", "#9a9aac", "#bcbcc8", "#dddde3", "#f1f1f3"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#E7E6E1", "tonalRamp": ["#2b2922", "#4f4d3f", "#716e5b", "#928e77", "#adaa99", "#c9c6bb", "#e4e3dd", "#f4f3f1"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero h1 only. Bricolage Grotesque at its heaviest weight (800) and tightest tracking." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2." },
+      "title": { "displayName": "Title", "purpose": "h3 and card headings." },
+      "body": { "displayName": "Body", "purpose": "Default paragraph text; lede paragraphs step up to 19px." },
+      "label": { "displayName": "Label", "purpose": "Eyebrows, nav links, tags, terminal/code chrome — always uppercase, always mono." }
+    },
+    "shadows": [
+      { "name": "ambient", "value": "0 1px 2px rgba(23,23,28,.05), 0 10px 30px -16px rgba(23,23,28,.22)", "purpose": "Default resting elevation for every card, rung, callout, day block. Ambient and always-on, not a hover response." },
+      { "name": "lifted", "value": "0 2px 6px rgba(23,23,28,.06), 0 24px 50px -24px rgba(36,22,128,.30)", "purpose": "Hover state for interactive cards; default resting state for the hero terminal window." }
+    ],
+    "motion": [
+      { "name": "rung-in", "value": "0.5s cubic-bezier(.2,.9,.3,1.25), staggered 0.05s/0.15s/0.25s per rung", "purpose": "Ladder rungs slide up and fade in on load, in sequence — the sequence itself is information (rung order)." },
+      { "name": "hover-lift", "value": "transform .16s, box-shadow .16s, border-color .16s", "purpose": "Interactive card hover: translateY(-2px) plus shadow deepen (ambient → lifted)." },
+      { "name": "reduced-motion", "value": "@media (prefers-reduced-motion: reduce) disables all animation/transition and forces scroll-behavior: auto", "purpose": "Full opt-out respected system-wide." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "760px" },
+      { "name": "library-grid", "value": "620px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Ladder Rung",
+      "kind": "custom",
+      "refersTo": "ladder-rung",
+      "description": "Signature 3-column rung (number badge · label+description · command hint) with a 3px left border and matching number-badge color, keyed to Prompt/Skill/Subagent tier.",
+      "html": "<div class=\"ds-rung ds-rung-t2\"><div class=\"ds-rung-n\">2</div><div class=\"ds-rung-body\"><b>Skill</b><span>You saved the prompt as a reusable /command. Same words, now on tap.</span></div><div class=\"ds-rung-cmd\">/command</div></div>",
+      "css": ".ds-rung{display:grid;grid-template-columns:46px 1fr auto;align-items:center;gap:16px;background:#FCFBF8;border:1px solid #D6D4CC;border-left-width:3px;border-radius:11px;padding:16px 18px;box-shadow:0 1px 2px rgba(23,23,28,.05), 0 10px 30px -16px rgba(23,23,28,.22);font-family:'Inter Tight',system-ui,sans-serif} .ds-rung-t2{border-left-color:#4531C9} .ds-rung-n{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;color:#fff;background:#4531C9} .ds-rung-body b{font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:600;display:block;letter-spacing:-.01em;color:#17171C} .ds-rung-body span{font-size:14px;color:#52525E} .ds-rung-cmd{font-family:'JetBrains Mono',monospace;font-size:12px;color:#86868F;white-space:nowrap}"
+    },
+    {
+      "name": "Callout",
+      "kind": "custom",
+      "refersTo": "callout",
+      "description": "Left-accented box with a mono eyebrow, in tip/rule/warn/stop semantic variants.",
+      "html": "<div class=\"ds-callout ds-callout-tip\"><span class=\"ds-eyebrow\">Tip</span><p>Guidance text goes here.</p></div>",
+      "css": ".ds-callout{border:1px solid #D6D4CC;border-left-width:3px;border-radius:11px;padding:16px 20px;background:#FCFBF8;font-family:'Inter Tight',system-ui,sans-serif} .ds-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:6px} .ds-callout p{margin:0;color:#52525E} .ds-callout-tip{background:#DFD9F8;border-color:#BFB4F0;border-left-color:#4531C9} .ds-callout-tip .ds-eyebrow{color:#31219E}"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Base raised-surface card used for nav cards, library items, and generic content blocks. Interactive variant lifts on hover.",
+      "html": "<a class=\"ds-card\" href=\"#\"><span class=\"ds-card-k\">Category</span><h4>Card Title</h4><p>Card description text.</p><span class=\"ds-card-go\">Open &rarr;</span></a>",
+      "css": ".ds-card{background:#FCFBF8;border:1px solid #D6D4CC;border-radius:11px;padding:20px;box-shadow:0 1px 2px rgba(23,23,28,.05), 0 10px 30px -16px rgba(23,23,28,.22);text-decoration:none;color:inherit;display:block;transition:transform .16s,box-shadow .16s,border-color .16s;font-family:'Inter Tight',system-ui,sans-serif} .ds-card:hover{transform:translateY(-2px);box-shadow:0 2px 6px rgba(23,23,28,.06), 0 24px 50px -24px rgba(36,22,128,.30);border-color:#BFB4F0} .ds-card-k{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#86868F} .ds-card h4{font-family:'Bricolage Grotesque',sans-serif;font-size:19px;font-weight:600;letter-spacing:-.01em;margin:8px 0 6px;color:#17171C} .ds-card p{font-size:14.5px;margin:0;color:#52525E} .ds-card-go{display:inline-block;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#31219E}"
+    },
+    {
+      "name": "Code Block + Copy Button",
+      "kind": "custom",
+      "refersTo": "code-block",
+      "description": "Dark terminal-toned pre block with syntax-colored spans and a floating mono copy button that turns green on success. The one deliberate inversion against the light paper system.",
+      "html": "<div class=\"ds-codewrap\"><pre class=\"ds-pre\"><span class=\"ds-c\"># comment</span>\n<span class=\"ds-p\">❯</span> claude</pre><button class=\"ds-copy\">Copy</button></div>",
+      "css": ".ds-codewrap{position:relative} .ds-pre{background:#15151C;color:#E7E6EF;border-radius:11px;padding:17px 19px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:12.8px;line-height:1.7;margin:0} .ds-c{color:#7E7C97} .ds-p{color:#9B8CFF} .ds-copy{position:absolute;top:9px;right:9px;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#2E2E3D;color:#EDECF5;border:1px solid rgba(255,255,255,.24);padding:6px 10px;border-radius:5px} .ds-copy:hover{background:#3C3C50;color:#fff;border-color:rgba(255,255,255,.42)} .ds-copy.done{background:#0E7C66;color:#fff;border-color:#0E7C66}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link-active",
+      "description": "Sticky translucent top nav with the ❯ brand glyph and mono uppercase links; active page gets a solid Skill Violet pill.",
+      "html": "<nav class=\"ds-nav\"><div class=\"ds-nav-in\"><a class=\"ds-brand\" href=\"#\"><span class=\"ds-glyph\">&#10095;</span><b>AI for Designers</b></a><div class=\"ds-nav-links\"><a href=\"#\" aria-current=\"page\">Start</a><a href=\"#\">Foundations</a></div></div></nav>",
+      "css": ".ds-nav{position:sticky;top:0;height:56px;background:rgba(231,230,225,.82);backdrop-filter:blur(12px);border-bottom:1px solid #D6D4CC} .ds-nav-in{display:flex;align-items:center;gap:22px;height:100%;padding:0 24px} .ds-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#17171C;font-weight:600} .ds-glyph{width:22px;height:22px;border-radius:6px;background:#4531C9;color:#fff;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700} .ds-brand b{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;letter-spacing:-.01em} .ds-nav-links{margin-left:auto;display:flex;gap:2px} .ds-nav-links a{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:7px 11px;border-radius:5px;text-decoration:none;color:#52525E} .ds-nav-links a:hover{background:#DFD9F8;color:#31219E} .ds-nav-links a[aria-current='page']{background:#4531C9;color:#fff}"
+    },
+    {
+      "name": "Tag / Chip",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Fully-round mono pill used for topic tags on library cards.",
+      "html": "<span class=\"ds-tag\">accessibility</span>",
+      "css": ".ds-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;padding:4px 9px;border-radius:999px;background:#FCFBF8;border:1px solid #D6D4CC;color:#86868F}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Terminal Ladder",
+    "overview": "This is a guide written by and for people who now live partly in a terminal. The visual system fuses two things the product itself is about: a command-line identity (the ❯ brand glyph, literal monospace command syntax, a mini terminal window in the hero) and the three-rung ladder — Prompt → Skill → Subagent — the whole guide teaches. The tier ramp isn't decorative color variety; it's the one idea made visible, so the deepening violet-to-indigo progression (--t1 → --t2 → --t3) must always track that specific meaning wherever it appears, never be reused as generic accent color.\n\nThe feel is precise and unshowy: warm, slightly desaturated paper (never bright white, deliberately not cream — \"#F4F1EA reads as AI-default\" per the token file's own comment) carries small, confident type moves rather than large decorative gestures. Cards and rungs sit gently, permanently lifted off the paper — elevation here is ambient and material, not a state you earn by hovering. Components read as workmanlike and precise: tight radii, thin rules, quiet hover lifts (translateY(-2px) plus a shadow deepen) — built for scanning and use, not for admiring.\n\nConfirmed rejection: this system explicitly does not chase generic \"AI-product\" visual habits — no glossy gradient hero, no purple-on-white SaaS default, no stock illustration. Where purple/violet appears, it is load-bearing (the ladder), not a category costume.",
+    "keyCharacteristics": [
+      "Warm, matte paper surfaces (never pure white, never cream) with a bright off-white card surface for content",
+      "A deepening violet→indigo tier ramp that always means Prompt→Skill→Subagent, never generic accent",
+      "Terminal/CLI vocabulary throughout: the ❯ glyph, monospace command chips, a dark terminal window",
+      "Ambient, always-on soft shadows — material lift at rest, not a hover reward",
+      "Small radii (5–20px), thin 1px rules, no heavy borders"
+    ],
+    "rules": [
+      { "name": "The Ladder-Only Rule", "body": "The three tier colors (Prompt Violet, Skill Violet, Subagent Indigo) and their soft/line tints exist to encode which rung of Prompt → Skill → Subagent a piece of UI refers to. Never repurpose them as a generic fourth or fifth accent color.", "section": "colors" },
+      { "name": "The Soft/Line Rule", "body": "Every accent color ships as a triplet: solid for icons/text/fills, -soft for background wash, -line for border. Never place a solid accent directly on Paper without its matching tints doing the transition.", "section": "colors" },
+      { "name": "The Mono-Means-Chrome Rule", "body": "JetBrains Mono is reserved for structural/interface text — never for headlines or body prose. If something is set in mono, it is labeling or instructing, not narrating.", "section": "typography" },
+      { "name": "The Always-Lifted Rule", "body": "Cards and rungs are never flat at rest. If a new component needs to feel calmer than the default card, reduce padding or remove the border — don't remove the shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the tier ramp (Prompt Violet / Skill Violet / Subagent Indigo) meaning-locked to the three rungs; never introduce a fourth 'tier-like' color.",
+      "Do pair every accent color with its own -soft background and -line border tint rather than placing a solid accent directly on Paper.",
+      "Do set structural/interface text (nav, eyebrows, tags, code, terminal) in JetBrains Mono, uppercase, widely tracked where it's a label.",
+      "Do give every card-like surface an ambient shadow at rest (11px radius, 1px Rule border) — nothing floats with zero elevation.",
+      "Do use the 3px colored left-border pattern (rung, callout, day block) to tag a block's category without adding a badge."
+    ],
+    "donts": [
+      "Don't use a bright/pure white or cream background — Paper is deliberately warm and slightly desaturated.",
+      "Don't reach for a generic purple-on-white 'AI SaaS' gradient hero, glossy CTA, or stock illustration — the violet in this system is load-bearing ladder meaning, not category decoration.",
+      "Don't make elevation hover-only. Shadows here are ambient/material; hover deepens an existing shadow, it doesn't create one from flat.",
+      "Don't set headline or body prose in JetBrains Mono — mono means interface chrome, not narration.",
+      "Don't hand-roll a new border-radius value outside 5px / 11px / 20px (or 999px for fully round pills/chips)."
+    ]
+  }
+}

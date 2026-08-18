@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-color",
+        "value": "#000",
+        "files": [
+          "assets/css/base.css"
+        ],
+        "createdAt": "2026-08-18T19:17:05.440Z",
+        "reason": "mask-image gradient stop (alpha/visibility value for the mobile nav scroll-fade), not a visible ink color from the palette"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "14.5px",
+        "files": [
+          "assets/css/base.css"
+        ],
+        "createdAt": "2026-08-18T19:19:06.776Z",
+        "reason": "reuses the existing .card p body size (already used on .compare/.quote/.card) applied to the new .card-primary variant, not a new type step"
+      }
+    ]
+  }
+}

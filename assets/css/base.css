@@ -16,7 +16,7 @@ img{max-width:100%}
 
 .eyebrow{
   font-family:var(--mono);font-size:11px;font-weight:500;
-  letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);
+  letter-spacing:.15em;text-transform:uppercase;color:var(--ink-2);
 }
 .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
 .measure{max-width:var(--measure);margin-inline:auto}
@@ -103,7 +103,7 @@ p strong,li strong{color:var(--ink);font-weight:600}
 }
 .rung .body b{font-family:var(--display);font-size:18px;font-weight:600;display:block;letter-spacing:-.01em}
 .rung .body span{font-size:14px;color:var(--ink-2)}
-.rung .cmd{font-family:var(--mono);font-size:12px;color:var(--ink-3);white-space:nowrap}
+.rung .cmd{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
 .rung.t1{border-left-color:var(--t1)} .rung.t1 .n{background:var(--t1)}
 .rung.t2{border-left-color:var(--t2)} .rung.t2 .n{background:var(--t2)}
 .rung.t3{border-left-color:var(--t3)} .rung.t3 .n{background:var(--t3)}
@@ -132,11 +132,21 @@ p strong,li strong{color:var(--ink);font-weight:600}
   transition:transform .16s,box-shadow .16s,border-color .16s;
 }
 a.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--t2-line)}
-.card .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.card .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
 .card h4{font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.01em;margin:8px 0 6px}
 .card p{font-size:14.5px;margin:0}
 .card .go{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--t2-ink)}
 .card.disabled{opacity:.62;pointer-events:none}
+
+/* the single recommended next step, promoted above a secondary .cards grid */
+.card-primary{
+  background:var(--t2-soft);border-color:var(--t2-line);
+  padding:24px;margin-bottom:16px;
+}
+.card-primary .k{color:var(--t2-ink)}
+.card-primary h4{font-size:24px;margin-top:10px}
+.card-primary p{font-size:14.5px;max-width:56ch}
+.card-primary .go{font-weight:700}
 
 /* ---------- two-column compare (fit / not-fit) --------------------------- */
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 20px}
@@ -192,18 +202,29 @@ pre .v{color:#F0C078}      /* value    */
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;padding:4px 9px;border-radius:999px;background:var(--card);border:1px solid var(--rule);color:var(--ink-3)}
 
-footer{padding:44px 0 60px;color:var(--ink-3);font-size:14px;border-top:1px solid var(--rule)}
+footer{padding:44px 0 60px;color:var(--ink-2);font-size:14px;border-top:1px solid var(--rule)}
 footer .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:baseline}
 footer a{color:var(--ink-2)}
 footer .credit{margin-left:auto;font-family:var(--mono);font-size:11.5px}
 
 /* ---------- responsive --------------------------------------------------- */
 @media (max-width:760px){
-  .nav-links{gap:0}
-  .nav-links a,.nav-links span{padding:7px 8px;font-size:10.5px}
+  .brand{flex-shrink:0}
+  .nav-links{
+    gap:2px;min-width:0;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;-ms-overflow-style:none;
+    mask-image:linear-gradient(to right,#000 90%,transparent 100%);
+    -webkit-mask-image:linear-gradient(to right,#000 90%,transparent 100%);
+  }
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a,.nav-links span{padding:7px 8px;font-size:10.5px;flex:none;white-space:nowrap}
   .compare{grid-template-columns:1fr}
   .rung{grid-template-columns:40px 1fr;gap:12px}
   .rung .cmd{display:none}
+  /* mini terminal: keep each command its own group instead of letting the
+     trailing annotation fight the command text for the same narrow line */
+  .term-body{font-size:11.5px}
+  .term-body .out,.term-body .ok{display:block;margin:2px 0 12px 17px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
