@@ -42,8 +42,8 @@
         <div class="term" aria-label="Example of the prompt to skill to subagent progression">
           <div class="term-bar"><i></i><i></i><i></i><span>the whole idea, in three lines</span></div>
           <div class="term-body">
-<span class="pr">❯</span> spec the states for Acme&#39;s user-table row actions<span class="out">   → you type it once</span><br>
-<span class="pr">❯</span> /spec-interaction<span class="out">                          → you saved it as a Skill</span><br>
+<span class="pr">❯</span> spec the states for Acme&#39;s user-table row actions<span class="out">   → you type it once</span><br class="term-br">
+<span class="pr">❯</span> /spec-interaction<span class="out">                          → you saved it as a Skill</span><br class="term-br">
 <span class="pr">❯</span> delegate the a11y audit to a Subagent<span class="ok">        → it runs on its own</span>
           </div>
         </div>
@@ -96,7 +96,7 @@
         </div>
       </div>
 
-      <p style="margin-top:22px">Knowing which rung a task belongs on is the single most useful thing this guide teaches. <a href="foundations.html">Start with the foundations →</a></p>
+      <p style="margin-top:22px">Knowing which rung a task belongs on is the single most useful thing this guide teaches — you&#39;ll dig into it on <a href="foundations.html">Foundations</a> once you&#39;re set up below.</p>
     </div>
   </section>
 
@@ -118,7 +118,10 @@ curl -fsSL https://claude.ai/install.sh | bash
 
 <span class="c"># Windows — in PowerShell</span>
 irm https://claude.ai/install.ps1 | iex</pre></div>
-      <p>This is Anthropic&#39;s own installer, served from <code>claude.ai</code> — piping it into <code>bash</code> is the standard, documented way to run it. If you&#39;d rather read it first, <a href="https://claude.ai/install.sh">open the script</a> before running the command.</p>
+      <div class="callout tip">
+        <span class="eyebrow">Before you paste</span>
+        <p>This is Anthropic&#39;s own installer, served from <code>claude.ai</code> — piping it into <code>bash</code> is the standard, documented way to run it. If you&#39;d rather read it first, <a href="https://claude.ai/install.sh">open the script</a> before running the command.</p>
+      </div>
 
       <h3>2 · Start it and sign in</h3>
       <p>Close that terminal, open a fresh one so it picks up the new command, then run:</p>
@@ -167,18 +170,6 @@ irm https://claude.ai/install.ps1 | iex</pre></div>
           <p>Delegated specialists that run on their own &mdash; audits, synthesis, handoff.</p>
           <span class="go">Browse subagents &rarr;</span>
         </a>
-        <a class="card" href="workflows.html">
-          <span class="k">Recipes</span>
-          <h4>Workflows</h4>
-          <p>End-to-end recipes that chain prompts, skills and subagents into whole jobs.</p>
-          <span class="go">See workflows &rarr;</span>
-        </a>
-        <a class="card" href="showcase.html">
-          <span class="k">Showcase</span>
-          <h4>See it in action</h4>
-          <p>A real Acme landing page that reveals the prompt, skill or subagent behind each section.</p>
-          <span class="go">Open the showcase &rarr;</span>
-        </a>
         <a class="card" href="path.html">
           <span class="k">Guided</span>
           <h4>The 7-day path</h4>
@@ -186,6 +177,7 @@ irm https://claude.ai/install.ps1 | iex</pre></div>
           <span class="go">Start the path &rarr;</span>
         </a>
       </div>
+      <p class="also-line">Also: <a href="workflows.html">Workflows</a>, end-to-end recipes that chain these together &middot; <a href="showcase.html">Showcase</a>, a real page built with the method</p>
     </div>
   </section>
 </main>

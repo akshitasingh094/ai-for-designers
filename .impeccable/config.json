@@ -20,6 +20,15 @@
         ],
         "createdAt": "2026-08-18T19:19:06.776Z",
         "reason": "reuses the existing .card p body size (already used on .compare/.quote/.card) applied to the new .card-primary variant, not a new type step"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "13.5px",
+        "files": [
+          "assets/css/base.css"
+        ],
+        "createdAt": "2026-08-18T19:42:42.390Z",
+        "reason": "reuses the existing 13.5px size already used on .wf-when/.scard-usage-line/.scard-hint, applied to the new .also-line, not a new type step"
       }
     ]
   }

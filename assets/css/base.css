@@ -41,7 +41,7 @@ img{max-width:100%}
 }
 .nav-links a:hover{background:var(--t2-soft);color:var(--t2-ink)}
 .nav-links a[aria-current="page"]{background:var(--t2);color:#fff}
-.nav-links .soon{color:var(--ink-3);cursor:default;position:relative}
+.nav-links .soon{color:var(--ink-2);cursor:default;position:relative}
 .nav-links .soon::after{
   content:"soon";position:absolute;top:-3px;right:-2px;font-size:7px;letter-spacing:.06em;
   color:var(--t2-ink);background:var(--t2-soft);padding:1px 3px;border-radius:3px;
@@ -148,6 +148,9 @@ a.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color
 .card-primary p{font-size:14.5px;max-width:56ch}
 .card-primary .go{font-weight:700}
 
+/* one-line mention for secondary links that don't need a full card */
+.also-line{margin-top:16px;font-size:13.5px;color:var(--ink-2)}
+
 /* ---------- two-column compare (fit / not-fit) --------------------------- */
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 20px}
 .compare .col{border:1px solid var(--rule);border-radius:var(--r-m);padding:18px 20px;background:var(--card)}
@@ -200,7 +203,7 @@ pre .v{color:#F0C078}      /* value    */
 
 /* ---------- misc --------------------------------------------------------- */
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;padding:4px 9px;border-radius:999px;background:var(--card);border:1px solid var(--rule);color:var(--ink-3)}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;padding:4px 9px;border-radius:999px;background:var(--card);border:1px solid var(--rule);color:var(--ink-2)}
 
 footer{padding:44px 0 60px;color:var(--ink-2);font-size:14px;border-top:1px solid var(--rule)}
 footer .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:baseline}
@@ -225,6 +228,7 @@ footer .credit{margin-left:auto;font-family:var(--mono);font-size:11.5px}
      trailing annotation fight the command text for the same narrow line */
   .term-body{font-size:11.5px}
   .term-body .out,.term-body .ok{display:block;margin:2px 0 12px 17px}
+  .term-body .term-br{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
