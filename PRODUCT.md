@@ -27,7 +27,7 @@ The reader works in a terminal running Claude Code (a paid plan is required — 
 - Terminology: "the ladder" (Prompt → Skill → Subagent), each library page corresponds to one "rung."
 
 ## Brand Commitments
-Name: "AI for Designers." Voice is direct and practical, e.g. "Stop doing by hand what you've already done twice." Visual vocabulary already established: a terminal/CLI motif (❯ glyph as brand mark, monospace command examples/terminal blocks). Typefaces already in use: Bricolage Grotesque (display), Inter Tight (body/UI), JetBrains Mono (code). A favicon and the ❯ glyph exist at the project root.
+Name: "AI for Designers." Voice is direct and practical, e.g. "Stop doing by hand what you've already done twice." Visual vocabulary already established: a terminal/CLI motif (❯ glyph as brand mark, monospace command examples/terminal blocks). Typefaces already in use: Archivo (display), Inter Tight (body/UI), JetBrains Mono (code). Every surface uses sharp, 0px corners — no rounded corners anywhere in the real UI. A favicon and the ❯ glyph exist at the project root.
 
 ## Evidence on Hand
 Real, populated content already exists — not placeholders: 45 prompts across 10 categories, 17 installable skills (`skills/`), 5 installable subagents (`agents/a11y-reviewer.md`, `design-critic.md`, `edge-case-hunter.md`, `handoff-writer.md`, `research-synthesizer.md`), and a working showcase page. Three README images live in `docs/images/` (`banner.png`, `ladder.png`, `architecture.png`). No testimonials, customer names, or press exist — do not fabricate any.

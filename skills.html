@@ -8,7 +8,7 @@
 <meta name="description" content="A Claude Code Skills library for UI/UX and product designers. User-invoked commands and model-invoked standing rules, each with a copy-paste install.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 </head>
@@ -39,18 +39,18 @@
 
   <!-- ===== the two kinds ===== -->
   <section class="band">
-    <div class="wrap measure">
+    <div class="wrap">
       <div class="compare">
         <div class="col">
           <h4>❯ User-invoked</h4>
-          <p style="font-size:14.5px;margin:0">You type <code>/name</code> to run them. The verbs of your workflow — spec this, audit that, hand this off. You decide when.</p>
+          <p style="font-size:15.5px;margin:0">You type <code>/name</code> to run them. The verbs of your workflow — spec this, audit that, hand this off. You decide when.</p>
         </div>
         <div class="col">
           <h4>Model-invoked</h4>
-          <p style="font-size:14.5px;margin:0">No command. Claude reaches for them automatically when your task matches their description. Standing rules — your accessibility floor, your writing voice — always on.</p>
+          <p style="font-size:15.5px;margin:0">No command. Claude reaches for them automatically when your task matches their description. Standing rules — your accessibility floor, your writing voice — always on.</p>
         </div>
       </div>
-      <div class="callout tip">
+      <div class="callout tip measure">
         <span class="eyebrow">How to think about it</span>
         <p>User-invoked skills are tools you pick up. Model-invoked skills are habits you install once and forget — they quietly shape every relevant answer without you asking. A strong setup has a handful of each.</p>
       </div>
@@ -59,13 +59,15 @@
 
   <!-- ===== install primer ===== -->
   <section class="band">
-    <div class="wrap measure">
+    <div class="wrap">
+      <div class="measure">
       <div class="sec-head"><h2>Installing a skill</h2></div>
       <p class="sec-sub">Every card has a copy-paste install. It writes the skill straight into your Claude Code skills folder — you don&#39;t need this repo cloned. To confirm what you&#39;ve got:</p>
       <div class="codewrap"><pre><span class="p">❯</span> ls ~/.claude/skills     <span class="c"># everything you've installed, across all projects</span></pre></div>
       <div class="callout rule">
         <span class="eyebrow">These are yours to change</span>
         <p>Once installed, a skill is just a markdown file you own. Used one five times and kept correcting the same thing by hand? Open its <code>SKILL.md</code> and fold the fix in. The version you end up with beats the one you were handed.</p>
+      </div>
       </div>
     </div>
   </section>

@@ -8,7 +8,7 @@
 <meta name="description" content="A practical, production-ready guide to integrating Claude Code into your everyday design workflow. Prompts, Skills, and Subagents for UI/UX and product designers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/tokens.css">
 <link rel="stylesheet" href="assets/css/base.css">
 </head>
@@ -51,8 +51,8 @@
   </header>
 
   <section class="band" style="padding-top:34px;padding-bottom:10px">
-    <div class="wrap measure">
-      <a href="showcase.html" class="card" style="display:block;border-color:var(--t2-line);background:linear-gradient(120deg,var(--t2-soft),var(--card))">
+    <div class="wrap">
+      <a href="showcase.html" class="card measure" style="display:block;border-color:var(--t2-line);background:linear-gradient(120deg,var(--t2-soft),var(--card))">
         <span class="k">Showcase · see it in action</span>
         <h4 style="font-size:22px">A real landing page, built with the method</h4>
         <p>A polished SaaS page for Acme &mdash; then toggle &ldquo;how it was built&rdquo; to X-ray which prompt, skill or subagent produced every section.</p>
@@ -64,20 +64,24 @@
 
   <!-- ===== who it's for ===== -->
   <section class="band">
-    <div class="wrap measure">
+    <div class="wrap">
+      <div class="measure">
       <div class="sec-head"><h2>Who this is for</h2></div>
       <p>You&#39;re a designer — anywhere from your first year to your fifteenth. You&#39;re good at the craft. You&#39;ve maybe asked Claude to rewrite some copy or rough out a screen, but you couldn&#39;t honestly call yourself an <em>AI-powered</em> designer yet. You don&#39;t need theory about large language models. You need to know which tool to reach for, when, and how to make it repeatable.</p>
       <p>That&#39;s the whole scope of this guide. Everything here is built for <strong>Claude Code</strong> specifically — the version of Claude that lives in your terminal and can read and write real files on your machine. Other tools come in a later version; this one earns its place first.</p>
+      </div>
     </div>
   </section>
 
   <!-- ===== the one idea ===== -->
   <section class="band">
-    <div class="wrap measure">
+    <div class="wrap">
+      <div class="measure">
       <div class="sec-head"><h2>The one idea</h2></div>
       <p class="sec-sub">Every technique in this guide is a rung on the same ladder. The work you repeat climbs it — from something you type, to something you save, to something that runs without you.</p>
+      </div>
 
-      <div class="ladder">
+      <div class="ladder measure">
         <div class="rung t1">
           <div class="n">1</div>
           <div class="body"><b>Prompt</b><span>You type it. Great for one-offs. Zero setup, nothing saved.</span></div>
@@ -95,13 +99,14 @@
         </div>
       </div>
 
-      <p style="margin-top:22px">Knowing which rung a task belongs on is the single most useful thing this guide teaches — you&#39;ll dig into it on <a href="foundations.html">Foundations</a> once you&#39;re set up below.</p>
+      <p class="measure" style="margin-top:22px">Knowing which rung a task belongs on is the single most useful thing this guide teaches — you&#39;ll dig into it on <a href="foundations.html">Foundations</a> once you&#39;re set up below.</p>
     </div>
   </section>
 
   <!-- ===== getting started with claude code ===== -->
   <section class="band">
-    <div class="wrap measure">
+    <div class="wrap">
+      <div class="measure">
       <div class="sec-head"><h2>First, get Claude Code running</h2></div>
       <p class="sec-sub">If the terminal isn&#39;t your home turf, that&#39;s expected — most designers&#39; isn&#39;t. This takes about two minutes, and you only do it once.</p>
 
@@ -133,6 +138,7 @@ irm https://claude.ai/install.ps1 | iex</pre></div>
       <div class="callout tip">
         <span class="eyebrow">If something snags</span>
         <p><code>command not found</code> almost always means your terminal has a stale path — close it and open a new one. Anything else, the official docs have the fix: <a href="https://docs.claude.com/en/docs/claude-code/overview">docs.claude.com/en/docs/claude-code</a>. Install commands change; when in doubt, trust the docs over any copy here.</p>
+      </div>
       </div>
     </div>
   </section>
