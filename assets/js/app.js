@@ -33,6 +33,31 @@ function wireStaticCode(){
   });
 }
 
+/* ---- mobile nav burger menu ---------------------------------------------- */
+const ICON_MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+const ICON_CLOSE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+
+function wireNavToggle(){
+  document.querySelectorAll('.nav-toggle').forEach(btn=>{
+    const nav = btn.closest('.nav');
+    const links = nav && nav.querySelector('.nav-links');
+    if(!links) return;
+    btn.innerHTML = ICON_MENU;
+    const close = ()=>{
+      links.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.innerHTML = ICON_MENU;
+    };
+    const open = ()=>{
+      links.classList.add('open'); btn.setAttribute('aria-expanded','true'); btn.innerHTML = ICON_CLOSE;
+    };
+    btn.addEventListener('click', ()=>{ links.classList.contains('open') ? close() : open(); });
+    links.querySelectorAll('a').forEach(a=> a.addEventListener('click', close));
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') close(); });
+    document.addEventListener('click', e=>{
+      if(links.classList.contains('open') && !nav.contains(e.target)) close();
+    });
+  });
+}
+
 /* ---- prompt library ----------------------------------------------------- */
 function renderPrompts(){
   const mount = document.getElementById('lib');
@@ -367,6 +392,7 @@ function renderWorkflows(){
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
+  wireNavToggle();
   wireStaticCode();
   renderPrompts();
   renderSkills();
